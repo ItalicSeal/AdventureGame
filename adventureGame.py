@@ -7,7 +7,17 @@ from rich.console import Console
 
 console = Console()
 
-console.print("Hello", style="bold")
+console.print("Hello", style="green")
+
+
+console.print("███████╗░█████╗░██████╗░██╗░░██╗  ██╗", style="BOLD")
+console.print("╚════██║██╔══██╗██╔══██╗██║░██╔╝  ██║", style="BOLD")
+console.print("░░███╔═╝██║░░██║██████╔╝█████═╝░  ██║", style="BOLD")
+console.print("██╔══╝░░██║░░██║██╔══██╗██╔═██╗░  ██║", style="BOLD")
+console.print("███████╗╚█████╔╝██║░░██║██║░╚██╗  ██║", style="BOLD")
+console.print("╚══════╝░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝  ╚═╝", style="BOLD")
+
+
 
 class Item:
     def __init__(self, name, description, static, static_message):
