@@ -1,15 +1,7 @@
 import json
-from stringshorterner import split_string_length
+from utils import split_string_length
 
 split_length = 400
-
-
-# class Item(object):
-#    def __init__(self, name, description):
-#        self.name = name
-#        self.description = description
-#    @staticmethod
-
 
 class Cell(object):
     timesEntered = 0
@@ -33,7 +25,7 @@ class Cell(object):
             print(
                 "1. Head north \n2. Head east \n3. Head south \n4. Head west \n5. Description/resay \n6. Inventory/i \n")
             cls.getInput(cls)
-        elif 'inventory' in playerInput.casefold() or playerInput.casefold() == "i":
+        elif 'inventory' in playerInput.casefold() or playerInput.casefold() == "i" or playerInput.casefold() == "inv":
             print("Inventory: \n" + str(inventory))
         elif 'north' in playerInput.casefold() or playerInput.casefold() == "n":
             cls.headNorth(cls)
@@ -47,12 +39,12 @@ class Cell(object):
             cls.timesEntered = 0
             cls.room_entered(cls)
         else:
-            print("\n" + firstName + " has difficulty understanding what you are trying to say. ")
+            print("\n" + firstName + "I don't understand your command")
             cls.room_entered(cls)
 
     @staticmethod
     def headNorth(cls):
-        if cls.northCell == "nothing".casefold():
+        if cls.northCell == "".casefold():
             print("\nThere is nothing that way.\n")
             cls.getInput(cls)
         elif 'message' in cls.northCell:
@@ -64,7 +56,7 @@ class Cell(object):
 
     @staticmethod
     def headEast(cls):
-        if cls.eastCell == "nothing".casefold():
+        if cls.eastCell == "".casefold():
             print("\nThere is nothing that way.\n")
             cls.getInput(cls)
         elif 'message' in cls.eastCell:
@@ -76,7 +68,7 @@ class Cell(object):
 
     @staticmethod
     def headSouth(cls):
-        if cls.southCell == "nothing".casefold():
+        if cls.southCell == "".casefold():
             print("\nThere is nothing that way.\n")
             cls.getInput(cls)
         elif 'message' in cls.southCell:
@@ -88,7 +80,7 @@ class Cell(object):
 
     @staticmethod
     def headWest(cls):
-        if cls.westCell == "nothing".casefold():
+        if cls.westCell == "".casefold():
             print("\nThere is nothing that way.\n")
             cls.getInput(cls)
         elif 'message' in cls.westCell:
@@ -112,9 +104,9 @@ class Cell(object):
 
 
 # Start of adventure
-print("Hello fellow adventurer!")
-firstName = input("What is your first name? ").replace(" ", "")
-lastName = input("What is your last name? ").replace(" ", "")
+#print("Hello fellow adventurer!")
+#firstName = input("What is your first name? ").replace(" ", "")
+#lastName = input("What is your last name? ").replace(" ", "")
 
 inventory = []
 

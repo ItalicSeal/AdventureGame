@@ -15,6 +15,7 @@ def split_string(string, split_length):
 
     return splits
 
+
 def split_string_down_line(string, split_length):
     words = string.split()
     splits = []
@@ -31,7 +32,6 @@ def split_string_down_line(string, split_length):
         splits.append(current_split.strip())
 
     return '\n'.join(splits)
-
 
 
 def split_string_length(string, line_length):
@@ -55,3 +55,29 @@ def split_string_length(string, line_length):
         lines.append(current_line.strip())
 
     return '\n'.join(lines) + '\n'
+def cutscene(messages, length):
+    for message in messages:
+        print(split_string_length(message, length))
+        input("Press enter to continue... \n")
+
+def generate_item_sentence(item_Names):
+        item_Sentence = ""
+        if len(item_Names) == 1:
+            item_Sentence += item_Names[0]
+        else:
+            currentlength = 0
+            for object in item_Names:
+                currentlength += 1
+                if currentlength >= len(item_Names):
+                    item_Sentence += " and a " + object
+                elif currentlength >= len(item_Names) - 1:
+                    item_Sentence += object
+                else:
+                    item_Sentence += object + ", a "
+        return(f"You can see a {item_Sentence}.")
+
+        #return item_Names
+
+
+
+
