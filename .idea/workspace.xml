@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82459cf2-e0b1-4c57-a309-27039615ca76" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AdventureGame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Refactored.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adventureGameAI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rooms.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/roomsold.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/cell.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/items.json" beforeDir="false" afterPath="$PROJECT_DIR$/items.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rooms.json" beforeDir="false" afterPath="$PROJECT_DIR$/rooms.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stringshorterner.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdventureGame.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Refactored.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adventureGameAI.py" beforeDir="false" afterPath="$PROJECT_DIR$/adventureGame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cell.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/items.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rooms.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roomsold.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tes.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

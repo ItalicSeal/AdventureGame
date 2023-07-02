@@ -1,9 +1,0 @@
-{
-  "item": [
-    {
-      "name": "bed",
-      "description": "It's your bed. The bedsheets have cartoon dinosaurs on them, characters from your favorite TV series \"Dinocopters.\" It's not very comfortable.",
-      "interactions": ["look", "look_under"]
-    }
-  ]
-}
