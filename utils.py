@@ -76,8 +76,6 @@ def generate_item_sentence(item_Names):
                     item_Sentence += object + ", a "
         return(f"You can see a {item_Sentence}.")
 
-        #return item_Names
-
 
 
 

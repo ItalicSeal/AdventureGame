@@ -9,21 +9,6 @@ from rich.console import Console
 
 console = Console()
 
-console.print("Hello", style="green")
-
-
-console.print("    ███████╗░█████╗░██████╗░██╗░░██╗  ██╗", style="BOLD")
-console.print("    ╚════██║██╔══██╗██╔══██╗██║░██╔╝  ██║", style="BOLD")
-console.print("    ░░███╔═╝██║░░██║██████╔╝█████═╝░  ██║", style="BOLD")
-console.print("    ██╔══╝░░██║░░██║██╔══██╗██╔═██╗░  ██║", style="BOLD")
-console.print("    ███████╗╚█████╔╝██║░░██║██║░╚██╗  ██║", style="BOLD")
-console.print("    ╚══════╝░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝  ╚═╝", style="BOLD")
-
-
-console.print("░█▀▀█ █▀▀ █▀▄▀█ █▀▀█ █▀▀ ▀▀█▀▀ █▀▀ █▀▀█ █▀▀ █▀▀▄")
-console.print("░█▄▄▀ █▀▀ █─▀─█ █▄▄█ ▀▀█ ──█── █▀▀ █▄▄▀ █▀▀ █──█")
-console.print("░█─░█ ▀▀▀ ▀───▀ ▀──▀ ▀▀▀ ──▀── ▀▀▀ ▀─▀▀ ▀▀▀ ▀▀▀─")
-
 class Item:
     def __init__(self, name, description, static, static_message):
         self.name = name
@@ -80,11 +65,11 @@ class Game:
     #         connections = data[2].split(',')
     #
     #         room = Room(room_name, room_desc)
-    #         #print(f"Room: {room_name}, Desc: {room_desc}, Connections: {connections}")  # For debugging
+    #         #console.print(f"Room: {room_name}, Desc: {room_desc}, Connections: {connections}")  # For debugging
     #
     #         if len(data) > 3:
     #             items = data[3].split('|')
-    #             #print(items)
+    #             #console.print(items)
     #             #items = data[3:]
     #             for item in items:
     #                 item_data = item.split('=')
@@ -115,7 +100,7 @@ class Game:
                     enter_cutscene = room_data.get('enter_cutscene', None)
 
                 room = Room(room_name, room_desc, enter_cutscene)
-                print(f"Room: {room_name}, Desc: {room_desc}, Connections: {connections}")  # For debugging
+                #console.print(f"Room: {room_name}, Desc: {room_desc}, Connections: {connections}")  # For debugging
 
                 if 'items' in room_data:
                     items = room_data['items']
@@ -134,12 +119,13 @@ class Game:
 
     def start_game(self, start_room):
         self.current_room = self.rooms[start_room]
+        console.print(self.current_room.name, style="underline")
 
         if self.current_room.times_entered == 0:
             cutscene(self.current_room.enter_cutscene, 400)
         self.current_room.times_entered += 1
 
-        print(split_string_length(self.current_room.description, 400))
+        console.print(split_string_length(self.current_room.description, 400))
 
         items = self.current_room.get_items()
         item_Names = []
@@ -148,19 +134,15 @@ class Game:
             for item in items:
                 item_Names.append(item.name)
 
-            print(generate_item_sentence(item_Names))
+            console.print(generate_item_sentence(item_Names))
         else:
-            print("There are no items in the room.")
+            console.print("There are no items in the room.")
 
         self.prompt()
 
     def prompt(self):
         while True:
-            command = input("Enter a command: (TYPE --help FOR MORE COMMANDS)").lower()
-
-            if command == "quit":
-                print("Game over. Goodbye!")
-                return
+            command = input("> ").lower()
 
             if command == "n".casefold() or "north".casefold() in command or command == "s".casefold() or "south".casefold() in command or command == "e".casefold() or "east".casefold() in command or command == "w".casefold() or "west".casefold() in command:
                 if command == "n".casefold() or "north".casefold() in command:
@@ -185,17 +167,17 @@ class Game:
                 self.interact_with_item(item_name)
             elif "inventory".casefold() in command or command == "i".casefold() or command == "inv".casefold():
                 self.display_inventory()
-            elif command == "exit".casefold() or command == "leave".casefold():
+            elif command.lower() == "exit" or command.lower() == "leave" or command.lower() == "quit":
                 leave_ = input("Are you sure you want to leave the game?")
-                if leave_ == "yes".casefold():
+                if leave_ == "yes".casefold() or leave_ == "y".casefold():
                     sys.exit()
-                elif leave_ == "no".casefold():
-                    print("Sure thing! ")
+                elif leave_ == "no".casefold() or leave_ == "n".casefold():
+                    console.print("Sure thing! ")
                     self.prompt()
                 else:
-                    print("Invalid command!")
+                    console.print("Invalid command!")
             else:
-                print("Invalid command!")
+                console.print("Invalid command!")
 
     def move(self, direction):
         next_room = self.current_room.get_connection(direction)
@@ -203,35 +185,37 @@ class Game:
         if next_room:
             self.current_room = self.rooms[next_room]
 
+            console.print(self.current_room.name, style="underline")
+
             if self.current_room.times_entered == 0:
                 cutscene(self.current_room.enter_cutscene, 400)
             self.current_room.times_entered += 1
 
-            print(split_string_length(self.current_room.description, 400))
+            console.print(split_string_length(self.current_room.description, 400))
             items = self.current_room.get_items()
             item_Names = []
             if items:
                 for item in items:
                     item_Names.append(item.name)
-                print(generate_item_sentence(item_Names))
+                console.print(generate_item_sentence(item_Names))
             else:
-                print("There are no items in the room.")
+                console.print("There are no items in the room.")
         else:
-            print("You can't go that way!")
+            console.print("You can't go that way!")
 
         self.prompt()
 
     def look(self, input_item):
         items = self.current_room.get_items()
 
-        # print(f"{self.current_room.description}")
+        # console.print(f"{self.current_room.description}")
         if items:
             for item in items:
                 if input_item == item.name:
-                    print(item.description)
+                    console.print(item.description)
 
         else:
-            print("There are no items in the room.")
+            console.print("There are no items in the room.")
 
     def take_item(self, item_name):
         items = self.current_room.get_items()
@@ -241,17 +225,17 @@ class Game:
                 if item.static:
                     static_message = item.static_message
                     if static_message:
-                        print(static_message)
+                        console.print(static_message)
                     else:
-                        print("That item is too heavy to pick up.")
+                        console.print("That item is too heavy to pick up.")
 
                 else:
                     self.current_room.remove_item(item)
                     self.inventory.append(item)
-                    print(f"You take the {item_name}.")
+                    console.print(f"You take the {item_name}.")
                 return
 
-        print("That item is not in the room.")
+        console.print("That item is not in the room.")
 
     def drop_item(self, item_name):
         items = []
@@ -260,20 +244,20 @@ class Game:
             for item in self.inventory:
                 items.append(item)
         else:
-            print("Your inventory is empty.")
+            console.print("Your inventory is empty.")
             return
 
         for item in items:
             if item.name == item_name:
                 if item.static:
-                    print("That item can't be dropped")
+                    console.print("That item can't be dropped")
                 else:
                     self.current_room.add_item(item)
                     self.inventory.remove(item)
-                    print(f"You drop the {item_name}.")
+                    console.print(f"You drop the {item_name}.")
                 return
 
-        print("That item is not in the room.")
+        console.print("That item is not in the room.")
 
     def interact_with_item(self, item_name):
         items = self.current_room.get_items()
@@ -283,18 +267,17 @@ class Game:
                 item.interact()
                 return
 
-        print("That item is not in the room.")
+        console.print("That item is not in the room.")
 
     def display_inventory(self):
         if self.inventory:
-            print("Inventory:")
+            console.print("Inventory:")
             for item in self.inventory:
-                print(f"- {item.name}: {item.description}")
+                console.print(f"- {item.name}: {item.description}")
         else:
-            print("Your inventory is empty.")
+            console.print("Your inventory is empty.")
 
-
-if __name__ == "__main__":
-    game = Game()
-    game.load_rooms("rooms.json")
-    game.start_game("YourBedroom")
+#if __name__ == "__main__":
+#    game = Game()
+#    game.load_rooms("rooms.json")
+#    game.start_game("YourBedroom")
