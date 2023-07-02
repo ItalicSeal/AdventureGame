@@ -1,3 +1,5 @@
+import sys
+
 from utils import split_string_length
 from utils import cutscene
 from utils import generate_item_sentence
@@ -10,14 +12,17 @@ console = Console()
 console.print("Hello", style="green")
 
 
-console.print("███████╗░█████╗░██████╗░██╗░░██╗  ██╗", style="BOLD")
-console.print("╚════██║██╔══██╗██╔══██╗██║░██╔╝  ██║", style="BOLD")
-console.print("░░███╔═╝██║░░██║██████╔╝█████═╝░  ██║", style="BOLD")
-console.print("██╔══╝░░██║░░██║██╔══██╗██╔═██╗░  ██║", style="BOLD")
-console.print("███████╗╚█████╔╝██║░░██║██║░╚██╗  ██║", style="BOLD")
-console.print("╚══════╝░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝  ╚═╝", style="BOLD")
+console.print("    ███████╗░█████╗░██████╗░██╗░░██╗  ██╗", style="BOLD")
+console.print("    ╚════██║██╔══██╗██╔══██╗██║░██╔╝  ██║", style="BOLD")
+console.print("    ░░███╔═╝██║░░██║██████╔╝█████═╝░  ██║", style="BOLD")
+console.print("    ██╔══╝░░██║░░██║██╔══██╗██╔═██╗░  ██║", style="BOLD")
+console.print("    ███████╗╚█████╔╝██║░░██║██║░╚██╗  ██║", style="BOLD")
+console.print("    ╚══════╝░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝  ╚═╝", style="BOLD")
 
 
+console.print("░█▀▀█ █▀▀ █▀▄▀█ █▀▀█ █▀▀ ▀▀█▀▀ █▀▀ █▀▀█ █▀▀ █▀▀▄")
+console.print("░█▄▄▀ █▀▀ █─▀─█ █▄▄█ ▀▀█ ──█── █▀▀ █▄▄▀ █▀▀ █──█")
+console.print("░█─░█ ▀▀▀ ▀───▀ ▀──▀ ▀▀▀ ──▀── ▀▀▀ ▀─▀▀ ▀▀▀ ▀▀▀─")
 
 class Item:
     def __init__(self, name, description, static, static_message):
@@ -180,6 +185,15 @@ class Game:
                 self.interact_with_item(item_name)
             elif "inventory".casefold() in command or command == "i".casefold() or command == "inv".casefold():
                 self.display_inventory()
+            elif command == "exit".casefold() or command == "leave".casefold():
+                leave_ = input("Are you sure you want to leave the game?")
+                if leave_ == "yes".casefold():
+                    sys.exit()
+                elif leave_ == "no".casefold():
+                    print("Sure thing! ")
+                    self.prompt()
+                else:
+                    print("Invalid command!")
             else:
                 print("Invalid command!")
 
