@@ -1,11 +1,9 @@
 import sys
 
-from utils import split_string_length
-from utils import cutscene
-from utils import generate_item_sentence
-
 import json
 from rich.console import Console
+
+from test import split_string_length
 
 console = Console()
 

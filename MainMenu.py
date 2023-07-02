@@ -3,6 +3,7 @@ import sys
 from rich.console import Console
 from adventureGame import Game
 from utils import blank_gen
+
 console = Console()
 
 blank_gen(1000)
