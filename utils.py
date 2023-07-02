@@ -58,24 +58,28 @@ def split_string_length(string, line_length):
 def cutscene(messages, length):
     for message in messages:
         print(split_string_length(message, length))
-        input("Press enter to continue... \n")
+        input("Press enter to continue...")
+        blank_gen(1)
 
 def generate_item_sentence(item_Names):
         item_Sentence = ""
         if len(item_Names) == 1:
-            item_Sentence += item_Names[0]
+            item_Sentence += f"[green]{item_Names[0]}[/]"
         else:
             currentlength = 0
             for object in item_Names:
                 currentlength += 1
                 if currentlength >= len(item_Names):
-                    item_Sentence += " and a " + object
+                    item_Sentence += f" and a [green]{object}[/]"
                 elif currentlength >= len(item_Names) - 1:
-                    item_Sentence += object
+                    item_Sentence += f"[green]{object}[/]"
                 else:
                     item_Sentence += object + ", a "
         return(f"You can see a {item_Sentence}.")
 
+def blank_gen(lines):
+    for line in range(lines):
+        print("")
 
 
 

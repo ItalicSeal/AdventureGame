@@ -1,27 +1,33 @@
 import sys
 
 from rich.console import Console
-
 from adventureGame import Game
+from utils import blank_gen
 console = Console()
+
+blank_gen(1000)
 
 def main_menu():
     response = input("> ")
     if response.lower() == "play":
+        blank_gen(1)
+
         game = Game()
         game.load_rooms("rooms.json")
         game.start_game("YourBedroom")
     elif response.lower() == "options":
+        blank_gen(1000)
         console.print("█▀█ █▀█ ▀█▀ █ █▀█ █▄░█ █▄░█ █▀")
         console.print("█▄█ █▀▀ ░█░ █ █▄█ █░▀█ █░▀█ ▄█")
         console.print("---DIFFICULTY---")
         console.print("-EASY")
-        console.print("-Medium")
+        console.print("-Medium<<<")
         console.print("-HARD")
         console.print("-VETERAN")
         console.print("")
         console.print("---Back---")
         response = input("> ")
+        blank_gen(1000)
         console.print("    ███████╗░█████╗░██████╗░██╗░░██╗  ██╗")
         console.print("    ╚════██║██╔══██╗██╔══██╗██║░██╔╝  ██║")
         console.print("    ░░███╔═╝██║░░██║██████╔╝█████═╝░  ██║")
@@ -41,6 +47,8 @@ def main_menu():
     else:
         print("Invalid Command!")
         main_menu()
+
+blank_gen(1000)
 
 console.print("    ███████╗░█████╗░██████╗░██╗░░██╗  ██╗")
 console.print("    ╚════██║██╔══██╗██╔══██╗██║░██╔╝  ██║")

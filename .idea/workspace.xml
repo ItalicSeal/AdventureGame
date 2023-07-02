@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82459cf2-e0b1-4c57-a309-27039615ca76" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/MainMenu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/AdventureGame.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainMenu.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainMenu.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adventureGame.py" beforeDir="false" afterPath="$PROJECT_DIR$/adventureGame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
@@ -41,7 +45,7 @@
     "last_opened_file_path": "C:/Users/Riley/OneDrive/Documents/GitHub/AdventureGame",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.16015625",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RecentsManager">

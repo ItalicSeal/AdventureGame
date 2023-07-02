@@ -128,13 +128,13 @@ class Game:
         console.print(split_string_length(self.current_room.description, 400))
 
         items = self.current_room.get_items()
-        item_Names = []
+        item_names = []
 
         if items:
             for item in items:
-                item_Names.append(item.name)
+                item_names.append(item.name)
 
-            console.print(generate_item_sentence(item_Names))
+            console.print(generate_item_sentence(item_names))
         else:
             console.print("There are no items in the room.")
 
@@ -193,11 +193,11 @@ class Game:
 
             console.print(split_string_length(self.current_room.description, 400))
             items = self.current_room.get_items()
-            item_Names = []
+            item_names = []
             if items:
                 for item in items:
-                    item_Names.append(item.name)
-                console.print(generate_item_sentence(item_Names))
+                    item_names.append(item.name)
+                console.print(generate_item_sentence(item_names))
             else:
                 console.print("There are no items in the room.")
         else:
@@ -232,7 +232,7 @@ class Game:
                 else:
                     self.current_room.remove_item(item)
                     self.inventory.append(item)
-                    console.print(f"You take the {item_name}.")
+                    console.print(f"You take the [green]{item_name}.[/]")
                 return
 
         console.print("That item is not in the room.")
@@ -254,7 +254,7 @@ class Game:
                 else:
                     self.current_room.add_item(item)
                     self.inventory.remove(item)
-                    console.print(f"You drop the {item_name}.")
+                    console.print(f"You drop the [green]{item_name}[/].")
                 return
 
         console.print("That item is not in the room.")
@@ -273,7 +273,7 @@ class Game:
         if self.inventory:
             console.print("Inventory:")
             for item in self.inventory:
-                console.print(f"- {item.name}: {item.description}")
+                console.print(f"- [green]{item.name}[/]: [cyan]{item.description}[/]")
         else:
             console.print("Your inventory is empty.")
 
