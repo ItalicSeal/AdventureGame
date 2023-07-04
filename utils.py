@@ -1,3 +1,5 @@
+from rich.console import Console
+console = Console()
 
 def split_string(string, split_length):
     words = string.split()
@@ -59,21 +61,21 @@ def split_string_length(string, line_length):
 def cutscene(messages, length):
     for message in messages:
         print(split_string_length(message, length))
-        input("Press enter to continue...")
+        console.input("Press [green bold]enter[/] to continue...")
         blank_gen(1)
 
 def generate_item_sentence(item_Names):
         item_Sentence = ""
         if len(item_Names) == 1:
-            item_Sentence += f"[green]{item_Names[0]}[/]"
+            item_Sentence += f"[green bold]{item_Names[0]}[/]"
         else:
             currentlength = 0
             for object in item_Names:
                 currentlength += 1
                 if currentlength >= len(item_Names):
-                    item_Sentence += f" and a [green]{object}[/]"
+                    item_Sentence += f" and a [green bold]{object}[/]"
                 elif currentlength >= len(item_Names) - 1:
-                    item_Sentence += f"[green]{object}[/]"
+                    item_Sentence += f"[green bold]{object}[/]"
                 else:
                     item_Sentence += object + ", a "
         return(f"You can see a {item_Sentence}.")

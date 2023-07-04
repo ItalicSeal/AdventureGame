@@ -22,21 +22,5 @@
         "static_message": "I'm not touching that thing!"
       }
     ]
-  },
-  {
-    "name": "UpstairsHallway",
-    "description": "This is the second room.",
-    "connections": {
-      "south": "Room1",
-      "east": "Room3"
-    },
-    "enter_cutscene": ["This is a cutscene...", "I like cutscenes!"]
-  },
-  {
-    "name": "Room3",
-    "description": "This is the third room.",
-    "connections": {
-      "west": "Room2"
-    }
   }
 ]
